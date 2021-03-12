@@ -4,7 +4,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "user_table")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -25,8 +29,6 @@ public class User implements UserDetails {
     private String username;
 
     private String password;
-
-
 
     @Override
     public Set<GrantedAuthority> getAuthorities() {
