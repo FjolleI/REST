@@ -14,35 +14,35 @@ import com.coursestopics.springboot.model.Topic;
 import com.coursestopics.springboot.service.CourseService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/topics/{topicId}/courses")
 public class CourseController {
 
 	@Autowired
 	private CourseService courseService;
 
-	@RequestMapping("/topics/{topicId}/courses")
+	@RequestMapping("/")
 	public List<Course> getAllCourses(@PathVariable String topicId){
 		return courseService.getAllCourses(topicId);
 	}
 
-	@RequestMapping("/topics/{topicId}/courses/{courseId}")
+	@RequestMapping("/{courseId}")
 	public Course getCourse(@PathVariable String topicId, @PathVariable String courseId){
 		return courseService.getCourse(topicId,courseId);
 	}
 
-	@RequestMapping(method=RequestMethod.POST, value="/topics/{topicId}/courses")
+	@RequestMapping(method=RequestMethod.POST, value="/")
 	public void addCourse(@PathVariable String topicId, @RequestBody Course course){
 		Topic topic = new Topic(topicId,topicId, topicId+" description");
 		course.setTopic(topic);
 		courseService.addCourse(course);
 	}
 
-	@RequestMapping(method=RequestMethod.PUT, value="/topics/{topicId}/courses/{courseId}")
+	@RequestMapping(method=RequestMethod.PUT, value="/{courseId}")
 	public void updateCourse(@PathVariable String courseId, @RequestBody Course course){
 		courseService.updateCourse(courseId, course);
 	}
 
-	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{topicId}/courses/{courseId}")
+	@RequestMapping(method=RequestMethod.DELETE, value="/{courseId}")
 	public void deleteCourse(@PathVariable String courseId){
 		courseService.deleteCourse(courseId);
 	}

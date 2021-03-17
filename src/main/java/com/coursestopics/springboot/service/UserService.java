@@ -1,6 +1,7 @@
 package com.coursestopics.springboot.service;
 import com.coursestopics.springboot.model.User;
 import com.coursestopics.springboot.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,16 +13,11 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @Service
+@AllArgsConstructor
 public class UserService implements UserDetailsService {
 
-       private UserRepository repository;
+    private final UserRepository repository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder){
-        this.repository=userRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

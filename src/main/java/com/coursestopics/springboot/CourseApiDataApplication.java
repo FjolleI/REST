@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-//@EnableJpaRepositories
 public class CourseApiDataApplication {
 
 	public static void main(String[] args) {
@@ -17,5 +16,6 @@ public class CourseApiDataApplication {
 		SpringApplication.run(CourseApiDataApplication.class, args);
 
 	}
+
 
 }

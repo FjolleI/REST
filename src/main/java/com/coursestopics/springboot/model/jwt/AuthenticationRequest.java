@@ -1,4 +1,4 @@
-package com.coursestopics.springboot.model;
+package com.coursestopics.springboot.model.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
