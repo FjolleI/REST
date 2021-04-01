@@ -12,5 +12,5 @@ import com.coursestopics.springboot.model.Course;
 
 public interface CourseRepository extends CrudRepository<Course, String>{
 	
-	public List<Course> findByTopicId(String topicId);
+	public List<Course> findByTopicId(Integer topicId);
 }

@@ -18,10 +18,12 @@ import javax.persistence.Id;
 @Setter
 @Data
 public class Topic {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Integer id;
 	private String name;
 	private String description;
 	
@@ -29,7 +31,7 @@ public class Topic {
 		super();
 	}
 	
-	public Topic(String id, String name, String description){
+	public Topic(Integer id, String name, String description){
 		super();
 		this.id = id;
 		this.name = name;

@@ -18,9 +18,11 @@ import javax.persistence.*;
 @Table
 public class Course {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Integer id;
 	private String name;
 	private String description;
 

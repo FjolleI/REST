@@ -21,7 +21,7 @@ public class CourseController {
 	private CourseService courseService;
 
 	@RequestMapping("/")
-	public List<Course> getAllCourses(@PathVariable String topicId){
+	public List<Course> getAllCourses(@PathVariable Integer topicId){
 		return courseService.getAllCourses(topicId);
 	}
 
@@ -31,8 +31,8 @@ public class CourseController {
 	}
 
 	@RequestMapping(method=RequestMethod.POST, value="/")
-	public void addCourse(@PathVariable String topicId, @RequestBody Course course){
-		Topic topic = new Topic(topicId,topicId, topicId+" description");
+	public void addCourse(@PathVariable Integer topicId, @RequestBody Course course){
+		Topic topic = new Topic(topicId,"name", " description");
 		course.setTopic(topic);
 		courseService.addCourse(course);
 	}
